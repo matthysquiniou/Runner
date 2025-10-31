@@ -1,0 +1,12 @@
+#pragma once
+enum ControllerFlags
+{
+	RESTART_GAME,
+	RESUME_GAME,
+	GO_TO_MENU,
+	GO_TO_SETTINGS,
+	GO_TO_GAME,
+	GO_TO_PAUSE,
+	GO_BACK,
+	CLOSE_GAME
+};

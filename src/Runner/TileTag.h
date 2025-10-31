@@ -1,0 +1,15 @@
+#pragma once
+enum TileTag
+{
+	//SPECS
+	STRAIGHT,
+	LEFT,
+	RIGHT,
+	AROUND,
+
+	LEFTRIGHT,
+	BROKENBRIDGE,
+	STRAIGHTDOUBLE,
+
+	TILETAGSIZE,
+};
