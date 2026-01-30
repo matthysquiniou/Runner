@@ -1,50 +1,95 @@
-# 🎮 Atari’s GC Simple Render
+# 3D Runner Project – Learning the Fundamentals of 3D Gameplay
 
-*A barebones fork of GC-simple-render, aiming to provide several hotfixes and PRs to bother the original team’s DevOps 😇*
+## Installation and Solution Generation
 
-Welcome to Atari’s GC Simple Render, our fork of the original GC-simple-render, lovingly fixed, cleaned up, and upgraded by the Atari class. (It’s a lie)
-This version keeps the same base but adds several quality-of-life hotfixes, without actually touching any of the structure or rendering backend. (It’s a bit like in Sea of Thieves, when you stick wooden planks to your ship to repair it.. but with a rendering library.)
+1. Go to the `bin/` folder.  
+2. Run `make.bat`.  
+3. The script will generate an `ide/` folder containing `[SOLUTION_NAME].sln`.  
+4. Open the Visual Studio solution.  
 
----
+School project developed using a **simplified version of GCE (Gaming Campus Game Engine)**.  
+Main objective: **continue improving 3D development skills** with a strong focus on the **3Cs**:
 
-## ✨ What’s New & Improved
+- **Camera**
+- **Controller**
+- **Character**
 
-Here’s what our fork adds on top of the original:
-
-* 🧾 **Fixed text rendering**
-  Text & fonts are now separated, and you can set the font after creating the object.
-
-* 🧩 **Unified namespace aliases**
-  Useful objects from the `gce::` namespace are now also accessible under the `sr::` namespace for better clarity.
-
-* 🏗️ **Custom geometry loading (OBJ support!)**
-  Use your own `.obj` models directly using the `sr::CustomGeometry` for 200% more coolness!
-
-* 💡 **Customizable lighting system**
-  Add and configure multiple light sources with custom colors, intensities, and directions, instead of only having access to the default one.
-
-* ⚙️ **Window parameter flags**
-  Easily toggle render passes (shadows, anti-aliasing, you get it..) through simple flags.
-
-* ⏱️ **Built-in `deltaTime` method**
-  Automatically provides last-frame delta time, no need for manual calculation (crazy stuff, I know).
-
-* 🖱️ **"Improved" mouse input handling**
-  Includes a new method for retrieving mouse delta (groundbreaking, I know).
+The game is a **3D runner**, centered on character movement, camera management, and real-time interactions.
 
 ---
 
-## 🧠 Why This Exists
+### 1. Character
+- Lateral movement management  
+- Jump and grounded states  
+- Controlled vertical movement (jetpack)  
+- Shooting system  
+- Velocity handling  
 
-This fork was made because we needed to use the library for a school project, but it was in an early stage (shout out to all the people who worked on it, you did an amazing job for one week of work). So we thought we’d make some changes to be able to work more comfortably with it.
+### 2. Controller
+- Keyboard and mouse input handling  
+- Direct link between inputs and character actions  
+- Logical separation between:
+  - **gameplay controls**
+  - **menu / scene controls**
+
+### 3. Camera
+- Camera attached to the character  
+- Dynamic movement toward the cursor  
+- Automatic return to default position  
 
 ---
 
-## ⚡ Credits
+## Game Concept
 
-* Huge shout-out to the original author of the lib: @MithanielVillard
-* As well as all the people who worked on the GC-Engine project :)
-* Forked & improved by **Atari class**, with <3 and brainrot
-* Special thanks to @AymericMATTE for sacrificing his weekend to help :)
+The player controls a character in a **3D runner-style** environment.  
+The objective is to progress while avoiding obstacles using:
+
+- lateral movement  
+- jumping  
+- jetpack movement  
+- shooting  
+
+The gameplay strongly relies on control responsiveness and camera readability.
 
 ---
+
+## 🎮 Controls – Gameplay (In Game)
+
+| Key / Mouse | Action |
+|-------------|--------|
+| **Q** | Move left |
+| **D** | Move right |
+| *(no lateral key pressed)* | Character looks forward |
+| **SPACE** | Jump (only when grounded) |
+| **Z** | Jetpack up |
+| **S** | Jetpack down |
+| **Left Click** | Shoot forward |
+| **Right Click (hold)** | Move camera toward cursor |
+| *(release right click)* | Camera reset |
+
+---
+
+## Controls – Menus & Scene Management
+
+The game uses a **SceneManager** to handle states:
+
+- MENU  
+- GAMEPLAY  
+- PAUSE  
+- SETTINGS  
+- GAMEOVER  
+
+| Key | Function |
+|-----|----------|
+| **A** | Start the game from the menu |
+| **P** | Pause the game (from gameplay) |
+| **C** | Resume the game (from pause) |
+| **R** | Restart the game (from pause or game over) |
+| **S** | Go to settings (from menu or pause) |
+| **B** | Return to previous scene (from settings) |
+| **Q** | Return to menu (from pause or game over) |
+| **SPACE** | Quit the game (from menu, pause, or game over) |
+
+---
+
+Project focused on **technical learning**, not a final production.
